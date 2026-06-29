@@ -176,6 +176,13 @@ The project provides:
 - Streamlit Dashboard
 
 ---
+## 🚀 Live Application
+
+🌐 **Live Demo:**  
+https://gauravkumar902704-project-8-gearbox-predictive-maint-app-lkj6bq.streamlit.app/
+
+📂 **GitHub Repository:**  
+https://github.com/gauravkumar902704/Project_8_Gearbox_Predictive_Maintenance
 
 # 📸 Project Screenshots
 ## 📸 Project Screenshots

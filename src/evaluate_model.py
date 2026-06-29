@@ -11,7 +11,10 @@ Purpose:
 6. Plot Accuracy Graph
 """
 
+import os
+import seaborn as sns
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 
 from sklearn.metrics import (
@@ -42,6 +45,39 @@ def evaluate_models(models, X_test, y_test):
 
         print("\nConfusion Matrix\n")
         print(confusion_matrix(y_test, prediction))
+        cm = confusion_matrix(y_test, prediction)
+
+        image_folder = os.path.join(
+            os.path.dirname(os.path.dirname(__file__)),
+            "Images"
+        )
+
+        os.makedirs(image_folder, exist_ok=True)
+
+        plt.figure(figsize=(5,4))
+
+        sns.heatmap(
+            cm,
+            annot=True,
+            fmt="d",
+            cmap="Blues",
+            xticklabels=["Broken", "Healthy"],
+            yticklabels=["Broken", "Healthy"]
+        )
+
+        plt.title(f"{name} Confusion Matrix")
+        plt.xlabel("Predicted")
+        plt.ylabel("Actual")
+
+        save_path = os.path.join(
+            image_folder,
+            f"{name.lower().replace(' ', '_')}_confusion_matrix.png"
+        )
+
+        plt.savefig(save_path, dpi=300, bbox_inches="tight")
+
+        plt.show()
+        
 
         print("\nClassification Report\n")
         print(classification_report(y_test, prediction))
@@ -76,27 +112,40 @@ def show_best_model(result_df):
 
 def plot_accuracy(result_df):
     """
-    Plot Model Accuracy
+    Plot and save model accuracy graph.
     """
 
-    plt.figure(figsize=(10,5))
+    import os
+
+    image_folder = os.path.join(
+        os.path.dirname(os.path.dirname(__file__)),
+        "Images"
+    )
+
+    os.makedirs(image_folder, exist_ok=True)
+
+    plt.figure(figsize=(7,3.5))
 
     plt.bar(
         result_df["Model"],
         result_df["Accuracy"]
     )
 
-    plt.title("Model Comparison")
-
+    plt.title("Model Accuracy Comparison")
     plt.xlabel("Machine Learning Models")
-
     plt.ylabel("Accuracy")
-
     plt.xticks(rotation=20)
-
     plt.grid(axis="y")
 
+    save_path = os.path.join(
+        image_folder,
+        "accuracy_comparison.png"
+    )
+
+    plt.savefig(save_path, dpi=300, bbox_inches="tight")
     plt.show()
+
+    print(f"\nAccuracy graph saved at:\n{save_path}")
 
 
 def evaluation_pipeline(models, X_test, y_test):
@@ -121,5 +170,68 @@ def evaluation_pipeline(models, X_test, y_test):
     best_model = show_best_model(result_df)
 
     plot_accuracy(result_df)
+    feature_names = X_test.columns
+
+    plot_feature_importance(
+        best_model,
+        feature_names
+    )
 
     return result_df, best_model
+
+
+def plot_feature_importance(best_model, feature_names):
+    """
+    Plot Feature Importance of Decision Tree or Random Forest
+    """
+
+    import os
+
+    if not hasattr(best_model, "feature_importances_"):
+        print("\nFeature Importance not available for this model.")
+        return
+
+    image_folder = os.path.join(
+        os.path.dirname(os.path.dirname(__file__)),
+        "Images"
+    )
+
+    os.makedirs(image_folder, exist_ok=True)
+
+    importance = best_model.feature_importances_
+
+    indices = np.argsort(importance)[::-1]
+
+    plt.figure(figsize=(10,5))
+
+    plt.bar(
+        range(len(feature_names)),
+        importance[indices]
+    )
+
+    plt.xticks(
+        range(len(feature_names)),
+        np.array(feature_names)[indices],
+        rotation=30
+    )
+
+    plt.title("Feature Importance")
+
+    plt.xlabel("Features")
+
+    plt.ylabel("Importance")
+
+    plt.grid(axis="y")
+
+    save_path = os.path.join(
+        image_folder,
+        "feature_importance.png"
+    )
+
+    plt.savefig(save_path,
+                dpi=300,
+                bbox_inches="tight")
+
+    plt.show()
+
+    print(f"\nFeature Importance saved at:\n{save_path}")

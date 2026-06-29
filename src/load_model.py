@@ -31,10 +31,10 @@ def load_model():
     # Load Model
     model = joblib.load(MODEL_PATH)
 
-    print("=" * 60)
-    print("MODEL LOADED SUCCESSFULLY")
-    print("=" * 60)
-    print(f"Model Path : {MODEL_PATH}")
+    #print("=" * 60)
+    #print("MODEL LOADED SUCCESSFULLY")
+    #print("=" * 60)
+    #print(f"Model Path : {MODEL_PATH}")
 
     return model
 

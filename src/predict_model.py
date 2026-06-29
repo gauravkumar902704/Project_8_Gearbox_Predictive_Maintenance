@@ -44,23 +44,24 @@ def predict(file_path):
 
     confidence = max(probability[0]) * 100
 
-    print("\n" + "="*60)
-    print("GEARBOX HEALTH PREDICTION")
-    print("="*60)
 
-    print(f"\nInput File : {os.path.basename(file_path)}")
+    #print("\n" + "="*60)
+    #print("GEARBOX HEALTH PREDICTION")
+    #print("="*60)
 
-    if prediction[0] == 0:
-        print("\nPrediction : Broken Tooth")
-    else:
-        print("\nPrediction : Healthy")
+    #print(f"\nInput File : {os.path.basename(file_path)}")
 
-    print(f"\nConfidence : {confidence:.2f}%")
+    #if prediction[0] == 0:
+    #    print("\nPrediction : Broken Tooth")
+    #else:
+    #    print("\nPrediction : Healthy")
 
-    print("\nExtracted Features\n")
-    print(input_df)
+    #print(f"\nConfidence : {confidence:.2f}%")
 
-    return prediction[0], confidence
+    #print("\nExtracted Features\n")
+    #print(input_df)
+
+    return prediction[0], confidence, input_df
 
 
 if __name__ == "__main__":

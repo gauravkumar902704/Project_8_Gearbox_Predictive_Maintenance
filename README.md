@@ -1,40 +1,61 @@
-# 🚀 Gearbox Predictive Maintenance using Machine Learning
+# ⚙️ Gearbox Predictive Maintenance using Machine Learning
 
-## 📌 Project Overview
+## 📌 Overview
 
-This project predicts the health condition of an industrial gearbox using vibration signal analysis and Machine Learning.
+This project predicts the health condition of an industrial gearbox using **Machine Learning** and **vibration signal analysis**.
 
-The system extracts statistical features from vibration signals stored in `.txt` files and classifies the gearbox condition into:
-
-- ✅ Healthy
-- ❌ Broken Tooth
-
-The project compares multiple Machine Learning algorithms and automatically selects the best-performing model.
+The system extracts statistical features from vibration signals stored in `.txt` files, trains multiple Machine Learning models, automatically selects the best-performing model, and predicts the condition of new gearbox vibration signals through a **Streamlit Web Application**.
 
 ---
 
-## ✨ Features
+# 🚀 Features
 
-- Automatic feature extraction from vibration signals
-- Dataset generation
-- Data preprocessing
-- Training multiple ML models
-- Model comparison
-- Accuracy evaluation
-- Confusion Matrix
-- Classification Report
-- Automatic Best Model Selection
-- Model Saving (.pkl)
-- Load saved model
-- Predict new vibration files
-- Confidence score prediction
-- Clean modular code structure
+- 📂 Automatic Dataset Creation
+- 📊 Statistical Feature Extraction
+- 🧹 Data Preprocessing
+- 🤖 Training Multiple Machine Learning Models
+- 📈 Model Accuracy Comparison
+- 📉 Confusion Matrix & Classification Report
+- 🏆 Automatic Best Model Selection
+- 💾 Save & Load Trained Model
+- 🔍 Predict New Vibration Files
+- 📱 Streamlit Web Application
+- 📊 Confidence Score Prediction
 
 ---
 
-## 📂 Project Structure
+# 🧠 Machine Learning Models
 
-```
+The following models are trained and compared:
+
+- Decision Tree
+- Random Forest
+- K-Nearest Neighbors (KNN)
+- Logistic Regression
+- Support Vector Machine (SVM)
+- Gaussian Naive Bayes
+
+The model with the highest accuracy is automatically selected and saved.
+
+---
+
+# 📊 Features Extracted
+
+Each vibration signal is converted into the following statistical features:
+
+- Mean
+- Standard Deviation
+- Minimum
+- Maximum
+- Peak
+- RMS (Root Mean Square)
+- Crest Factor
+
+---
+
+# 📂 Project Structure
+
+```text
 Project_8_Gearbox_Predictive_Maintenance/
 
 │
@@ -65,6 +86,7 @@ Project_8_Gearbox_Predictive_Maintenance/
 │   ├── predict_model.py
 │   └── utils.py
 │
+├── app.py
 ├── main.py
 ├── requirements.txt
 ├── README.md
@@ -73,45 +95,20 @@ Project_8_Gearbox_Predictive_Maintenance/
 
 ---
 
-## 🧠 Machine Learning Models Used
+# 📁 Dataset
 
-- Decision Tree
-- Random Forest
-- K-Nearest Neighbors (KNN)
-- Logistic Regression
-- Support Vector Machine (SVM)
-- Gaussian Naive Bayes
+The dataset consists of vibration signals collected from:
 
-The best-performing model is automatically selected based on accuracy.
+- ✅ Healthy Gearbox
+- ❌ Broken Tooth Gearbox
 
----
+Each vibration signal is stored as a `.txt` file.
 
-## 📊 Features Extracted
-
-The following statistical features are extracted from each vibration signal:
-
-- Mean
-- Standard Deviation
-- Minimum
-- Maximum
-- Peak
-- RMS
-- Crest Factor
+The statistical features are extracted automatically before model training.
 
 ---
 
-## 📈 Dataset
-
-The project uses gearbox vibration signal data consisting of:
-
-- Healthy gearbox signals
-- Broken Tooth gearbox signals
-
-Each signal is converted into statistical features before training.
-
----
-
-## ⚙️ Technologies Used
+# 💻 Technologies Used
 
 - Python
 - NumPy
@@ -119,18 +116,25 @@ Each signal is converted into statistical features before training.
 - Matplotlib
 - Scikit-Learn
 - Joblib
+- Streamlit
 
 ---
 
-## 📦 Installation
+# ⚙️ Installation
 
-Clone the repository
+## Clone Repository
 
 ```bash
-git clone <repository-link>
+git clone https://github.com/gauravkumar902704/Project_8_Gearbox_Predictive_Maintenance.git
 ```
 
-Install dependencies
+## Move into Project Folder
+
+```bash
+cd Project_8_Gearbox_Predictive_Maintenance
+```
+
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -138,7 +142,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Run Project
+# ▶️ Run Training Pipeline
 
 ```bash
 python main.py
@@ -146,44 +150,101 @@ python main.py
 
 ---
 
-## 📊 Output
+# 🌐 Run Streamlit App
+
+```bash
+streamlit run app.py
+```
+
+---
+
+# 📈 Output
 
 The project provides:
 
 - Dataset Creation
+- Feature Extraction
 - Model Training
 - Model Comparison
-- Accuracy Table
+- Accuracy Comparison Graph
 - Confusion Matrix
 - Classification Report
 - Best Model Selection
-- Prediction on New Data
+- Saved ML Model
+- Gearbox Health Prediction
 - Confidence Score
-
----
-
-## 🔮 Future Improvements
-
-- Deep Learning (CNN/LSTM)
-- Real-time Sensor Integration
-- Flask Web Application
 - Streamlit Dashboard
-- Model Deployment
+
+---
+
+# 📸 Project Screenshots
+## 📸 Project Screenshots
+
+### Streamlit Dashboard
+
+![Dashboard](Images/dashboard1.png)
+![Dashboard](Images/dashboard2.png)
+
+---
+
+### Accuracy Comparison
+
+![Accuracy Comparison](Images/accuracy_comparison.png)
+
+## Streamlit Dashboard
+
+> Add your Streamlit dashboard screenshot here.
+
+```text
+Images/dashboard.png
+```
+
+---
+
+## Accuracy Comparison
+
+> Add your generated graph here.
+
+```text
+Images/accuracy_comparison.png
+```
+
+---
+
+# 🔮 Future Improvements
+
+- Deep Learning (CNN / LSTM)
+- Real-time Sensor Integration
+- IoT-Based Predictive Maintenance
 - Cloud Deployment
-- Industrial IoT Integration
+- REST API using FastAPI
+- Docker Deployment
+- Industrial Dashboard
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
-**Gaurav Kumar**
+## Gaurav Kumar
 
-B.Tech  (Information Technology)
+**B.Tech – Information Technology**
 
-GitHub: *(https://github.com/gauravkumar902704)*
+### GitHub
 
-LinkedIn: *(https://www.linkedin.com/in/gaurav-kumar-a756a1278?utm_source=share_via&utm_content=profile&utm_medium=member_android)*
+https://github.com/gauravkumar902704
+
+### LinkedIn
+
+https://www.linkedin.com/in/gaurav-kumar-a756a1278
 
 ---
 
-⭐ If you like this project, consider giving it a star.
+# ⭐ Support
+
+If you found this project useful, please consider giving it a ⭐ on GitHub.
+
+---
+
+## 📜 License
+
+This project is developed for educational and learning purposes.

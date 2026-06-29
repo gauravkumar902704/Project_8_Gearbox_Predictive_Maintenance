@@ -17,7 +17,6 @@ venv/
 
 # Outputs
 Outputs/*.csv
-Reports/
 
 # OS files
 .DS_Store

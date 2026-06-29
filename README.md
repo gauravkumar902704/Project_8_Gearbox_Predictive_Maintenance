@@ -254,4 +254,4 @@ If you found this project useful, please consider giving it a ⭐ on GitHub.
 
 ## 📜 License
 
-This project is developed for educational and learning purposes.
+This project is developed for @upskillcampus.com

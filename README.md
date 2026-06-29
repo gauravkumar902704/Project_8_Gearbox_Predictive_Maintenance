@@ -180,9 +180,9 @@ The project provides:
 
 B.Tech  (Information Technology)
 
-GitHub: *(Add your GitHub profile here)*
+GitHub: *(https://github.com/gauravkumar902704)*
 
-LinkedIn: *(Add your LinkedIn profile here)*
+LinkedIn: *(https://www.linkedin.com/in/gaurav-kumar-a756a1278?utm_source=share_via&utm_content=profile&utm_medium=member_android)*
 
 ---
 

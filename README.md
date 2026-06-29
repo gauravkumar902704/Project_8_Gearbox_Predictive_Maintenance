@@ -182,8 +182,8 @@ The project provides:
 
 ### Streamlit Dashboard
 
-![Dashboard](Images/dashboard1.png)
-![Dashboard](Images/dashboard2.png)
+![Dashboard](Images/Dashboard1.png)
+![Dashboard](Images/Dashboard2.png)
 
 ---
 

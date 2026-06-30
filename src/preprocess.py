@@ -28,7 +28,7 @@ def process_healthy_data():
 
     for file in os.listdir(HEALTHY_FOLDER):
 
-        if file.endswith(".txt"):
+        if file.lower().endswith((".txt", ".csv")):
 
             file_path = os.path.join(HEALTHY_FOLDER, file)
 
@@ -50,7 +50,7 @@ def process_broken_data():
 
     for file in os.listdir(BROKEN_FOLDER):
 
-        if file.endswith(".txt"):
+        if file.lower().endswith((".txt", ".csv")):
 
             file_path = os.path.join(BROKEN_FOLDER, file)
 

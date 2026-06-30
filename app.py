@@ -48,14 +48,14 @@ st.write(
 
 uploaded_file = st.file_uploader(
     "Choose vibration file",
-    type=["txt"]
+    type=["txt", "csv"]
 )
 
 if uploaded_file:
 
     with tempfile.NamedTemporaryFile(
         delete=False,
-        suffix=".txt"
+        suffix=os.path.splitext(uploaded_file.name)[1]
     ) as tmp:
 
         tmp.write(uploaded_file.read())

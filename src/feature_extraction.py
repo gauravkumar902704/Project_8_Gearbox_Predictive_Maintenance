@@ -3,7 +3,8 @@ feature_extraction.py
 ---------------------
 Extract statistical features from gearbox vibration signal.
 """
-
+import os
+import pandas as pd
 import numpy as np
 
 
@@ -19,7 +20,35 @@ def extract_features(file_path):
     """
 
     # Load vibration signal
-    signal = np.loadtxt(file_path)
+    extension = os.path.splitext(file_path)[1].lower()
+
+    # ---------------- TXT ----------------
+    if extension == ".txt":
+
+        signal = np.loadtxt(file_path)
+
+    # ---------------- CSV ----------------
+    elif extension == ".csv":
+
+        df = pd.read_csv(file_path)
+
+        # Keep only numeric columns
+        numeric_df = df.select_dtypes(include=["number"])
+
+        if numeric_df.empty:
+            raise ValueError(
+                "CSV file must contain at least one numeric column."
+            )
+
+        # Use first numeric column as vibration signal
+        signal = numeric_df.iloc[:, 0].to_numpy()
+
+    # ---------------- Unsupported ----------------
+    else:
+
+        raise ValueError(
+            "Only .txt and .csv files are supported."
+        )
 
     # Statistical Features
     mean = np.mean(signal)

@@ -82,9 +82,8 @@ def main():
     print("\nSTEP 5 : Prediction System\n")
 
     file_path = input(
-        "Enter vibration (.txt) file path : "
+        "Enter vibration (.txt / .csv) file path : "
     )
-
     predict(file_path)
 
     print("\nProject Completed Successfully")
